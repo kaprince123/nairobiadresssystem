@@ -82,6 +82,27 @@ Use `geo.distanceFromCbdKm` to drive delivery pricing logic directly in the brow
 - **Validation**: Phone, email, stage, and name are required in full mode. The WhatsApp field becomes required if the “same number” checkbox is unchecked. In stage-only mode, only the location fields are enforced.
 - **Stage autocomplete:** Stage suggestions (with distance data) are available only when the selected county is Nairobi to reflect the source CSV coverage. Other counties still support manual stage input while subcounty lists are pre-filled.
 
+## Netlify deploy (hosted demo)
+
+`netlify.toml` describes a zero-config deployment:
+
+- Build command: `npm run build:data && npm run prepare:public`
+- Publish directory: `public/`
+- Redirect: all routes fall back to `index.html`
+
+### Manual preview
+```bash
+npm run build:data
+npm run prepare:public
+npx http-server public -p 8888   # optional smoke test
+```
+
+### Netlify setup
+1. Push this repo to GitHub (already done if you’re here).
+2. In Netlify, “New site from Git” → pick this repository.
+3. Leave the build command/publish directory as above.
+4. Deploy—your playground will live at `<your-site>.netlify.app`.
+
 ## Backend SQL Blueprints
 
 Use these SQL snippets to store submissions and (optionally) maintain a copy of the stage catalogue in your Supabase/PostgreSQL project.

@@ -6,4 +6,5 @@ pnpm-debug.log*
 .DS_Store
 .env
 widget/stages.json
+public
 

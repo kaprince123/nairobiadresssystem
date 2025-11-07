@@ -1,0 +1,17 @@
+[build]
+  publish = "public"
+  command = "npm run build:data && npm run prepare:public"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+[build]
+  publish = "public"
+  command = "npm run build:data"
+
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
