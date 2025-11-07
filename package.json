@@ -7,7 +7,7 @@
     "build:data": "node scripts/buildStages.mjs",
     "serve:widget": "http-server widget -p 5000 -c-1",
     "serve:demo": "http-server . -p 5500 -c-1",
-    "prepare:public": "rm -rf public && mkdir -p public && cp demo/index.html public/index.html && cp widget/address-widget.js public/address-widget.js && cp widget/stages.json public/stages.json"
+    "prepare:public": "rm -rf public && mkdir -p public/widget && cp demo/index.html public/index.html && cp widget/address-widget.js public/widget/address-widget.js && cp widget/stages.json public/widget/stages.json"
   },
   "keywords": [
     "nairobi",
