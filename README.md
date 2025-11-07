@@ -2,6 +2,8 @@
 
 An embeddable, Nairobi-focused delivery address form that your team can drop into any checkout or onboarding flow. It captures contact information, county/subcounty, and the nearest matatu/bus stage with instant suggestions powered by your cleaned CSV dataset. Every suggestion now includes the distance from the Nairobi CBD in kilometers, making it easy to estimate delivery fees or price tiers.
 
+> Maintained by **Brian Ndeto** · Instagram: [@_kaprince_](https://www.instagram.com/_kaprince_/)
+
 ## Quick Start
 
 ### 1. Install dependencies
