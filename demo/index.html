@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kenya Address Widget Demo</title>
+    <script src="./../widget/address-widget.js" data-address-widget defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        margin: 0;
+        padding: 3rem 1.5rem;
+        background: linear-gradient(160deg, #0f172a 0%, #1e293b 45%, #334155 100%);
+        font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+        color: rgba(241, 245, 249, 0.92);
+        min-height: 100vh;
+      }
+
+      .page {
+        max-width: 1080px;
+        margin: 0 auto;
+        display: grid;
+        gap: 2.5rem;
+        align-items: start;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      header p {
+        max-width: 680px;
+        font-size: 1.05rem;
+        line-height: 1.6;
+      }
+
+      .grid {
+        display: grid;
+        gap: 2rem;
+      }
+
+      @media (min-width: 900px) {
+        .grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      pre {
+        background: rgba(15, 23, 42, 0.65);
+        backdrop-filter: blur(18px);
+        border-radius: 1rem;
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        padding: 1.25rem;
+        overflow-x: auto;
+        min-height: 200px;
+      }
+
+      .log-title {
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.82rem;
+        color: rgba(226, 232, 240, 0.7);
+      }
+
+      .card-title {
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: rgba(226, 232, 240, 0.9);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <h1>Kenya Address Widget</h1>
+        <p>
+          Collect verified Nairobi delivery details from your customers in seconds. The widgets below demonstrate the
+          full checkout experience and the lightweight stage-only option. Both emit rich JSON payloads that include
+          coordinates and distance-from-CBD to help you price deliveries automatically.
+        </p>
+      </header>
+
+      <section class="grid">
+        <div>
+          <div class="card-title">Full checkout form</div>
+          <kenya-address-widget></kenya-address-widget>
+        </div>
+        <div>
+          <div class="card-title">Stage-only selector</div>
+          <kenya-address-widget mode="stage-only"></kenya-address-widget>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div>
+          <div class="log-title">Full form payload</div>
+          <pre id="full-log">Interact with the left-hand widget to preview emitted JSON...</pre>
+        </div>
+        <div>
+          <div class="log-title">Stage-only payload</div>
+          <pre id="stage-only-log">Interact with the right-hand widget to preview emitted JSON...</pre>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      const fullWidget = document.querySelector('kenya-address-widget:not([mode])');
+      const stageOnlyWidget = document.querySelector('kenya-address-widget[mode="stage-only"]');
+      const fullLog = document.getElementById('full-log');
+      const stageOnlyLog = document.getElementById('stage-only-log');
+
+      fullWidget?.addEventListener('address-submit', (event) => {
+        fullLog.textContent = JSON.stringify(event.detail, null, 2);
+        console.info('[address-submit:full]', event.detail);
+      });
+
+      stageOnlyWidget?.addEventListener('address-submit', (event) => {
+        stageOnlyLog.textContent = JSON.stringify(event.detail, null, 2);
+        console.info('[address-submit:stage-only]', event.detail);
+      });
+    </script>
+  </body>
+</html>
+
