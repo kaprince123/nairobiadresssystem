@@ -15,7 +15,7 @@
     "kenya",
     "open-source"
   ],
-  "author": "Brian Ndeto",
+  "author": "Kenya Address Contributors",
   "license": "MIT",
   "dependencies": {
     "csv-parse": "^6.1.0"

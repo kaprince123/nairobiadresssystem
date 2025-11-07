@@ -6,7 +6,8 @@ An embeddable, Nairobi-focused delivery address form that your team can drop int
 
 ### 1. Install dependencies
 ```bash
-cd "/Users/brianndeto/Desktop/Nairobi adress"
+git clone git@github.com:kaprince123/nairobiadresssystem.git
+cd nairobiadresssystem
 npm install
 ```
 
